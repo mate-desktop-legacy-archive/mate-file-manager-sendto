@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT(caja-sendto, 2011.12.01, http://www.mate-desktop.org)
+AC_INIT(caja-sendto, 1.1.0, http://www.mate-desktop.org)
 AM_CONFIG_HEADER(config.h)
 
 AM_INIT_AUTOMAKE([1.9 dist-bzip2 no-dist-gzip check-news])
@@ -34,7 +34,7 @@ GLIB_REQUIRED=2.25.9
 GTHREAD_REQUIRED=2.6.0
 GTK_REQUIRED=2.18
 EBOOK_REQUIRED=1.5.3
-CAJA_EXTENSION=2.13.3
+CAJA_EXTENSION=1.1.0
 DBUS_REQUIRED=1.0
 DBUS_GLIB_REQUIRED=0.60
 GUPNP_REQUIRED=0.13
