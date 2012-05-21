@@ -1,7 +1,8 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 
 /* 
- * Copyright (C) 2004 Roberto Majadas
+ * Copyright (C) 2004 Roberto Majadas <roberto.majadas@openshine.com>
+ * Copyright (C) 2012 Stefano Karapetsas <stefano@karapetsas.com>
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,21 +19,18 @@
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301  USA.
  *
- * Author:  Roberto Majadas <roberto.majadas@openshine.com>
+ * Authors:  Roberto Majadas <roberto.majadas@openshine.com>
+ *           Stefano Karapetsas <stefano@karapetsas.com>
  */
 
 #include "config.h"
 
-#include <e-contact-entry.h>
 #include <glib/gi18n-lib.h>
 #include <string.h>
+#include <mateconf/mateconf-client.h>
 #include "caja-sendto-plugin.h"
 
-#define MATECONF_COMPLETION "/apps/evolution/addressbook"
-#define MATECONF_COMPLETION_SOURCES MATECONF_COMPLETION "/sources"
 #define DEFAULT_MAILTO "/desktop/mate/url-handlers/mailto/command"
-
-#define CONTACT_FORMAT "%s <%s>"
 
 typedef enum {
 	MAILER_UNKNOWN,
@@ -44,8 +42,6 @@ typedef enum {
 
 static char *mail_cmd = NULL;
 static MailerType type = MAILER_UNKNOWN;
-static char *email = NULL;
-static char *name = NULL;
 
 static char *
 get_evo_cmd (void)
@@ -82,7 +78,7 @@ init (NstPlugin *plugin)
 {
 	MateConfClient *client;
 
-	g_print ("Init evolution plugin\n");
+	g_print ("Init email client plugin\n");
 	
 	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -105,7 +101,7 @@ init (NstPlugin *plugin)
 			type = MAILER_THUNDERBIRD;
 
 			/* Thunderbird sucks, see
-			 * https://bugzilla.mate.org/show_bug.cgi?id=614222 */
+			 * https://bugzilla.gnome.org/show_bug.cgi?id=614222 */
 			strv = g_strsplit (mail_cmd, " ", -1);
 			g_free (mail_cmd);
 			mail_cmd = g_strdup_printf ("%s %%s", strv[0]);
@@ -122,100 +118,13 @@ init (NstPlugin *plugin)
 	return TRUE;
 }
 
-static void
-contacts_selected_cb (GtkWidget *entry, EContact *contact, const char *identifier, NstPlugin *plugin)
-{
-	char *text;
-
-	g_free (email);
-	email = NULL;
-
-	if (identifier != NULL)
-		email = g_strdup (identifier);
-	else
-		email = e_contact_get (contact, E_CONTACT_EMAIL_1);
-
-	g_free (name);
-	name = NULL;
-
-	name = e_contact_get (contact, E_CONTACT_FULL_NAME);
-	if (name == NULL) {
-		name = e_contact_get (contact, E_CONTACT_NICKNAME);
-		if (name == NULL)
-			name = e_contact_get (contact, E_CONTACT_ORG);
-	}
-	if (name != NULL) {
-		text = g_strdup_printf (CONTACT_FORMAT, (char*) name, email);
-		gtk_entry_set_text (GTK_ENTRY (entry), text);
-		g_free (text);
-	} else
-		gtk_entry_set_text (GTK_ENTRY (entry), email);
-}
-
-static void
-state_change_cb (GtkWidget *entry, gboolean state, gpointer data)
-{
-	if (state == FALSE) {
-		g_free (email);
-		email = NULL;
-		g_free (name);
-		name = NULL;
-	}
-}
-
-static void
-error_cb (EContactEntry *entry_widget, const char *error, NstPlugin *plugin)
-{
-	g_warning ("An error occurred: %s", error);
-}
-
-static void
-add_sources (EContactEntry *entry)
-{
-	ESourceList *source_list;
-
-	source_list =
-		e_source_list_new_for_mateconf_default (MATECONF_COMPLETION_SOURCES);
-	e_contact_entry_set_source_list (E_CONTACT_ENTRY (entry),
-					 source_list);
-	g_object_unref (source_list);
-}
-
-static void
-sources_changed_cb (MateConfClient *client, guint cnxn_id,
-		MateConfEntry *entry, EContactEntry *entry_widget)
-{
-	add_sources (entry_widget);
-}
-
-static void
-setup_source_changes (EContactEntry *entry)
-{
-	MateConfClient *gc;
-
-	gc = mateconf_client_get_default ();
-	mateconf_client_add_dir (gc, MATECONF_COMPLETION,
-			MATECONF_CLIENT_PRELOAD_ONELEVEL, NULL);
-	mateconf_client_notify_add (gc, MATECONF_COMPLETION,
-			(MateConfClientNotifyFunc) sources_changed_cb,
-			entry, NULL, NULL);
-}
-
 static
 GtkWidget* get_contacts_widget (NstPlugin *plugin)
 {
 	GtkWidget *entry;
 
-	entry = e_contact_entry_new ();
-	g_signal_connect (G_OBJECT (entry), "contact-selected",
-			  G_CALLBACK (contacts_selected_cb), plugin);
-	g_signal_connect (G_OBJECT (entry), "state-change",
-			  G_CALLBACK (state_change_cb), NULL);
-	g_signal_connect (G_OBJECT (entry), "error",
-			  G_CALLBACK (error_cb), plugin);
-
-	add_sources (E_CONTACT_ENTRY (entry));
-	setup_source_changes (E_CONTACT_ENTRY (entry));
+	// TODO: add an email address format check
+	entry = gtk_entry_new();
 
 	return entry;
 }
@@ -226,20 +135,15 @@ get_evo_mailto (GtkWidget *contact_widget, GString *mailto, GList *file_list)
 	GList *l;
 
 	g_string_append (mailto, "mailto:");
-	if (email != NULL) {
-		if (name != NULL)
-			g_string_append_printf (mailto, "\""CONTACT_FORMAT"\"", name, email);
-		else
-			g_string_append_printf (mailto, "%s", email);
-	} else {
+
 		const char *text;
 
-		text = gtk_entry_get_text (GTK_ENTRY (contact_widget));
-		if (text != NULL && *text != '\0')
-			g_string_append_printf (mailto, "\"%s\"", text);
-		else
-			g_string_append (mailto, "\"\"");
-	}
+	text = gtk_entry_get_text (GTK_ENTRY (contact_widget));
+	if (text != NULL && *text != '\0')
+		g_string_append_printf (mailto, "\"%s\"", text);
+	else
+		g_string_append (mailto, "\"\"");
+
 	g_string_append_printf (mailto,"?attach=\"%s\"", (char *)file_list->data);
 	for (l = file_list->next ; l; l=l->next){
 		g_string_append_printf (mailto,"&attach=\"%s\"", (char *)l->data);
@@ -253,20 +157,15 @@ get_balsa_mailto (GtkWidget *contact_widget, GString *mailto, GList *file_list)
 
 	if (strstr (mail_cmd, " -m ") == NULL && strstr (mail_cmd, " --compose=") == NULL)
 		g_string_append (mailto, " --compose=");
-	if (email != NULL) {
-		if (name != NULL)
-			g_string_append_printf (mailto, "\""CONTACT_FORMAT"\"", name, email);
-		else
-			g_string_append_printf (mailto, "%s", email);
-	} else {
-		const char *text;
 
-		text = gtk_entry_get_text (GTK_ENTRY (contact_widget));
-		if (text != NULL && *text != '\0')
-			g_string_append_printf (mailto, "\"%s\"", text);
-		else
-			g_string_append (mailto, "\"\"");
-	}
+	const char *text;
+
+	text = gtk_entry_get_text (GTK_ENTRY (contact_widget));
+	if (text != NULL && *text != '\0')
+		g_string_append_printf (mailto, "\"%s\"", text);
+	else
+		g_string_append (mailto, "\"\"");
+
 	g_string_append_printf (mailto," --attach=\"%s\"", (char *)file_list->data);
 	for (l = file_list->next ; l; l=l->next){
 		g_string_append_printf (mailto," --attach=\"%s\"", (char *)l->data);
@@ -279,18 +178,13 @@ get_thunderbird_mailto (GtkWidget *contact_widget, GString *mailto, GList *file_
 	GList *l;
 
 	g_string_append (mailto, "-compose \"");
-	if (email != NULL) {
-		if (name != NULL)
-			g_string_append_printf (mailto, "to='"CONTACT_FORMAT"',", name, email);
-		else
-			g_string_append_printf (mailto, "to='%s',", email);
-	} else {
-		const char *text;
 
-		text = gtk_entry_get_text (GTK_ENTRY (contact_widget));
-		if (text != NULL && *text != '\0')
-			g_string_append_printf (mailto, "to='%s',", text);
-	}
+	const char *text;
+
+	text = gtk_entry_get_text (GTK_ENTRY (contact_widget));
+	if (text != NULL && *text != '\0')
+		g_string_append_printf (mailto, "to='%s',", text);
+
 	g_string_append_printf (mailto,"attachment='%s", (char *)file_list->data);
 	for (l = file_list->next ; l; l=l->next){
 		g_string_append_printf (mailto,",%s", (char *)l->data);
@@ -304,20 +198,15 @@ get_sylpheed_mailto (GtkWidget *contact_widget, GString *mailto, GList *file_lis
 	GList *l;
 
 	g_string_append (mailto, "--compose ");
-	if (email != NULL) {
-		if (name != NULL)
-			g_string_append_printf (mailto, "\""CONTACT_FORMAT"\" ", name, email);
-		else
-			g_string_append_printf (mailto, "%s ", email);
-	} else {
-		const char *text;
 
-		text = gtk_entry_get_text (GTK_ENTRY (contact_widget));
-		if (text != NULL && *text != '\0')
-			g_string_append_printf (mailto, "\"%s\" ", text);
-		else
-			g_string_append (mailto, "\"\"");
-	}
+	const char *text;
+
+	text = gtk_entry_get_text (GTK_ENTRY (contact_widget));
+	if (text != NULL && *text != '\0')
+		g_string_append_printf (mailto, "\"%s\" ", text);
+	else
+		g_string_append (mailto, "\"\"");
+
 	g_string_append_printf (mailto,"--attach \"%s\"", (char *)file_list->data);
 	for (l = file_list->next ; l; l=l->next){
 		g_string_append_printf (mailto," \"%s\"", (char *)l->data);
@@ -364,17 +253,13 @@ static
 gboolean destroy (NstPlugin *plugin){
 	g_free (mail_cmd);
 	mail_cmd = NULL;
-	g_free (name);
-	name = NULL;
-	g_free (email);
-	email = NULL;
 	return TRUE;
 }
 
 static 
 NstPluginInfo plugin_info = {
 	"emblem-mail",
-	"evolution",
+	"emailclient",
 	N_("Email"),
 	NULL,
 	CAJA_CAPS_NONE,

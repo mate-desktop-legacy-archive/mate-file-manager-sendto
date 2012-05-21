@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT(caja-sendto, 1.2.0, http://www.mate-desktop.org)
+AC_INIT(caja-sendto, 1.3.0, http://www.mate-desktop.org)
 AM_CONFIG_HEADER(config.h)
 
 AM_INIT_AUTOMAKE([1.9 dist-bzip2 no-dist-gzip check-news])
@@ -33,7 +33,6 @@ dnl --------------------------------------------------
 GLIB_REQUIRED=2.25.9
 GTHREAD_REQUIRED=2.6.0
 GTK_REQUIRED=2.18
-EBOOK_REQUIRED=1.5.3
 CAJA_EXTENSION=1.1.0
 DBUS_REQUIRED=1.0
 DBUS_GLIB_REQUIRED=0.60
@@ -42,7 +41,6 @@ GUPNP_REQUIRED=0.13
 AC_SUBST(GLIB_REQUIRED)
 AC_SUBST(GTHREAD_REQUIRED)
 AC_SUBST(GTK_REQUIRED)
-AC_SUBST(EBOOK_REQUIRED)
 AC_SUBST(CAJA_EXTENSION)
 AC_SUBST(BLUETOOTH_REQUIRED)
 AC_SUBST(DBUS_REQUIRED)
@@ -76,7 +74,7 @@ AC_MSG_NOTICE([installing caja plugin in ${ac_with_cajadir}])
 AC_SUBST([CAJA_EXTENSION_DIR],[${ac_with_cajadir}])
 
 # The full list of plugins
-allowed_plugins="evolution gajim caja-burn pidgin removable-devices upnp"
+allowed_plugins="emailclient gajim caja-burn pidgin removable-devices upnp"
 
 plugin_error_or_ignore()
 {
@@ -127,17 +125,12 @@ for plugin in ${used_plugins}; do
 	add_plugin="1"
 
 	case ${plugin} in
-		evolution)
-			PKG_CHECK_MODULES(NST_EBOOK, libebook-1.2 >= $EBOOK_REQUIRED,
-					   enable_evolution=yes, enable_evolution=no)
-			if test "${enable_evolution}" != "yes" ; then
-				plugin_error_or_ignore "you need libebook from evolution-data-server to build the Evolution plugin"
+		emailclient)
+			PKG_CHECK_MODULES(EMAILCLIENT, mateconf-2.0,
+					  enable_emailclient=yes, enable_emailclient=no)
+			if test "${enable_emailclient}" != "yes" ; then
+				plugin_error_or_ignore "you need mateconf-2.0 to build the emailclient plugin"
 				add_plugin="0"
-			else
-				saved_CPPFLAGS="$CPPFLAGS"
-				CPPFLAGS="$CPPFLAGS $NST_EBOOK_CFLAGS"
-				AC_CHECK_TYPES([EContactPhotoType], , , [#include <libebook/e-contact.h>])
-				CPPFLAGS="$saved_CPPFLAGS"
 			fi
 		;;
 		gajim)
@@ -243,7 +236,7 @@ Makefile
 src/Makefile
 src/caja-sendto.pc
 src/plugins/Makefile
-src/plugins/evolution/Makefile
+src/plugins/emailclient/Makefile
 src/plugins/gajim/Makefile
 src/plugins/caja-burn/Makefile
 src/plugins/pidgin/Makefile
