@@ -180,13 +180,13 @@ get_filename_from_list (void)
 static char *
 pack_files (NS_ui *ui)
 {
-	char *file_roller_cmd;
+	char *engrampa_cmd;
 	const char *filename;
 	GList *l;
 	GString *cmd, *tmp;
 	char *pack_type, *tmp_dir, *tmp_work_dir, *packed_file;
 
-	file_roller_cmd = g_find_program_in_path ("file-roller");
+	engrampa_cmd = g_find_program_in_path ("engrampa");
 	filename = gtk_entry_get_text(GTK_ENTRY(ui->pack_entry));
 
 	g_assert (filename != NULL && *filename != '\0');
@@ -222,11 +222,11 @@ pack_files (NS_ui *ui)
 
 	cmd = g_string_new ("");
 	g_string_printf (cmd, "%s --add-to=\"%s/%s%s\"",
-			 file_roller_cmd, tmp_work_dir,
+			 engrampa_cmd, tmp_work_dir,
 			 filename,
 			 pack_type);
 
-	/* file-roller doesn't understand URIs */
+	/* engrampa doesn't understand URIs */
 	for (l = file_list ; l; l=l->next){
 		char *file;
 
