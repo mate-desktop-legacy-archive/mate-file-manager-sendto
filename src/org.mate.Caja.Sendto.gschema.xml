@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema path="/apps/caja-sendto/" id="org.mate.Caja.Sendto" gettext-domain="caja-sendto">
+  <schema path="/org/mate/caja-sendto/" id="org.mate.Caja.Sendto" gettext-domain="caja-sendto">
     <key type="s" name="last-medium">
       <default>''</default>
       <summary>Last plugin used to send</summary>
