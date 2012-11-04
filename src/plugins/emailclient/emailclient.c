@@ -27,10 +27,10 @@
 
 #include <glib/gi18n-lib.h>
 #include <string.h>
-#include <mateconf/mateconf-client.h>
 #include "caja-sendto-plugin.h"
+#include <gio/gio.h>
 
-#define DEFAULT_MAILTO "/desktop/mate/url-handlers/mailto/command"
+#define DEFAULT_MAILTO "/org/mate/url-handlers/mailto/command"
 
 typedef enum {
 	MAILER_UNKNOWN,
@@ -76,16 +76,16 @@ get_evo_cmd (void)
 static gboolean
 init (NstPlugin *plugin)
 {
-	MateConfClient *client;
+	GSettings *settings;
 
 	g_print ("Init email client plugin\n");
 	
 	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
-	client = mateconf_client_get_default ();
-	mail_cmd = mateconf_client_get_string (client, DEFAULT_MAILTO, NULL);
-	g_object_unref (client);
+	settings = g_settings_new(DEFAULT_MAILTO);
+	mail_cmd = g_settings_get_string(settings, DEFAULT_MAILTO);
+	g_object_unref (settings);
 
 	if (mail_cmd == NULL || *mail_cmd == '\0') {
 		g_free (mail_cmd);
