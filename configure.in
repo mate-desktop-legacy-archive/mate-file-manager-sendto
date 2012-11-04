@@ -126,10 +126,10 @@ for plugin in ${used_plugins}; do
 
 	case ${plugin} in
 		emailclient)
-			PKG_CHECK_MODULES(EMAILCLIENT, mateconf-2.0,
+			PKG_CHECK_MODULES(EMAILCLIENT, gio-2.0,
 					  enable_emailclient=yes, enable_emailclient=no)
 			if test "${enable_emailclient}" != "yes" ; then
-				plugin_error_or_ignore "you need mateconf-2.0 to build the emailclient plugin"
+				plugin_error_or_ignore "you need gio-2.0 to build the emailclient plugin"
 				add_plugin="0"
 			fi
 		;;
