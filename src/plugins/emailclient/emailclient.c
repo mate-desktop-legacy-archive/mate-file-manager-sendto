@@ -30,8 +30,6 @@
 #include "caja-sendto-plugin.h"
 #include <gio/gio.h>
 
-#define DEFAULT_MAILTO "/org/mate/url-handlers/mailto/command"
-
 typedef enum {
 	MAILER_UNKNOWN,
 	MAILER_EVO,
@@ -76,16 +74,18 @@ get_evo_cmd (void)
 static gboolean
 init (NstPlugin *plugin)
 {
-	GSettings *settings;
+	GAppInfo *app_info = NULL;
 
 	g_print ("Init email client plugin\n");
 	
 	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
-	settings = g_settings_new(DEFAULT_MAILTO);
-	mail_cmd = g_settings_get_string(settings, DEFAULT_MAILTO);
-	g_object_unref (settings);
+	app_info = g_app_info_get_default_for_uri_scheme ("mailto");
+	if (app_info) {
+		mail_cmd = g_strdup(g_app_info_get_executable (app_info));
+		g_object_unref (app_info);
+	}
 
 	if (mail_cmd == NULL || *mail_cmd == '\0') {
 		g_free (mail_cmd);
