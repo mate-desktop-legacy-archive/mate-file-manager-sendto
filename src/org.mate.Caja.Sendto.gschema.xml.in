@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
   <schema id="org.mate.Caja.Sendto" path="/org/mate/caja-sendto/" gettext-domain="caja-sendto">
     <key name="last-medium" type="s">
