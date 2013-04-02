@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Sveinn í Felli <sveinki@nett.is>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 10:20+0200\n"
+"PO-Revision-Date: 2012-09-10 13:12+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: is\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/caja-nste.c:78 ../src/caja-nste.c:83 ../src/caja-sendto.ui.h:1
+msgid "Send To..."
+msgstr "Senda í..."
+
+#: ../src/caja-nste.c:79
+msgid "Send file by mail, instant message..."
+msgstr "Senda skrá í pósti, sem snarskilaboð..."
+
+#: ../src/caja-nste.c:84
+msgid "Send files by mail, instant message..."
+msgstr "Senda skrár í pósti, sem snarskilaboð..."
+
+#: ../src/caja-sendto-command.c:576
+msgid "Files"
+msgstr "Skrár"
+
+#: ../src/caja-sendto-command.c:788
+#, c-format
+msgid "Expects URIs or filenames to be passed as options\n"
+msgstr "Býst við URI-slóðum eða skráaheitum sem viðföngum rofa\n"
+
+#: ../src/caja-sendto-command.c:809
+#, c-format
+msgid "Could not parse command-line options: %s\n"
+msgstr "Gat ekki þáttað skipanalínurofa: %s\n"
+
+#: ../src/caja-sendto-command.c:824
+msgid "Could not load any plugins."
+msgstr "Gat ekki hlaðið inn neinum viðbótum."
+
+#: ../src/caja-sendto-command.c:827
+msgid "Please verify your installation"
+msgstr "Athugaðu hvort sé allt í lagi með uppsetninguna"
+
+#: ../src/caja-sendto.ui.h:2
+msgid "_Send"
+msgstr "_Senda"
+
+#: ../src/caja-sendto.ui.h:3
+msgid "<b>Destination</b>"
+msgstr "<b>Áfangastaður</b>"
+
+#: ../src/caja-sendto.ui.h:4
+msgid "Send _as:"
+msgstr "Senda s_em:"
+
+#: ../src/caja-sendto.ui.h:5
+msgid "Send t_o:"
+msgstr "Senda _til:"
+
+#: ../src/caja-sendto.ui.h:6
+msgid "<b>Compression</b>"
+msgstr "<b>Þjöppun</b>"
+
+#: ../src/caja-sendto.ui.h:7
+msgid "Send _packed in:"
+msgstr "Samþjappa s_kránni í:"
+
+#: ../src/plugins/emailclient/emailclient.c:263
+msgid "Email"
+msgstr "Netfang"
+
+#: ../src/plugins/gajim/gajim.c:417
+msgid "Unable to send file"
+msgstr "Tókst ekki að senda skrá"
+
+#: ../src/plugins/gajim/gajim.c:418
+msgid "There is no connection to gajim remote service."
+msgstr "Það er engin tenging við gajim netþjónustuna."
+
+#: ../src/plugins/gajim/gajim.c:442 ../src/plugins/gajim/gajim.c:482
+msgid "Sending file failed"
+msgstr "Sending skrár mistókst"
+
+#: ../src/plugins/gajim/gajim.c:443
+msgid "Recipient is missing."
+msgstr "Móttakanda vantar."
+
+#: ../src/plugins/gajim/gajim.c:482
+msgid "Unknown recipient."
+msgstr "Móttakandi er ekki þekktur."
+
+#: ../src/plugins/gajim/gajim.c:505
+msgid "Instant Message (Gajim)"
+msgstr "Snarskilaboð (Gajim)"
+
+#: ../src/plugins/caja-burn/caja-burn.c:92
+msgid "New CD/DVD"
+msgstr "Nýr geisla- eða mynddiskur"
+
+#: ../src/plugins/caja-burn/caja-burn.c:99
+msgid "Existing CD/DVD"
+msgstr "Geisla- eða mynddiskur sem þegar er til"
+
+#: ../src/plugins/caja-burn/caja-burn.c:178
+msgid "CD/DVD Creator"
+msgstr "CD/DVD Diskabrennsla"
+
+#: ../src/plugins/pidgin/pidgin.c:464
+msgid "Instant Message (Pidgin)"
+msgstr "Snarskilaboð (Pidgin)"
+
+#: ../src/plugins/removable-devices/removable-devices.c:248
+msgid "Removable disks and shares"
+msgstr "Útskiptanlegir diskar og fjartengd sameiginleg gögn"
+
+#: ../src/plugins/upnp/upnp.c:309
+msgid "UPnP Media Server"
+msgstr "UPnP margmiðlunarþjónn"

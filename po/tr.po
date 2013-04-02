@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <mauron@vmail.me>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 10:20+0200\n"
+"PO-Revision-Date: 2012-07-15 02:28+0000\n"
+"Last-Translator: mauron <mauron@vmail.me>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/MATE/language/tr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../src/caja-nste.c:78 ../src/caja-nste.c:83 ../src/caja-sendto.ui.h:1
+msgid "Send To..."
+msgstr "Gönder..."
+
+#: ../src/caja-nste.c:79
+msgid "Send file by mail, instant message..."
+msgstr "Dosyayı e-posta, anlık mesajlaşma ile gönder..."
+
+#: ../src/caja-nste.c:84
+msgid "Send files by mail, instant message..."
+msgstr "Dosyaları e-posta, anlık mesajlaşma ile gönder..."
+
+#: ../src/caja-sendto-command.c:576
+msgid "Files"
+msgstr "Dosyalar"
+
+#: ../src/caja-sendto-command.c:788
+#, c-format
+msgid "Expects URIs or filenames to be passed as options\n"
+msgstr "Seçenek olarak İnternet adresleri veya dosya adları bekler\n"
+
+#: ../src/caja-sendto-command.c:809
+#, c-format
+msgid "Could not parse command-line options: %s\n"
+msgstr "Komut satırı ayarları ayrıştırılamıyor: %s\n"
+
+#: ../src/caja-sendto-command.c:824
+msgid "Could not load any plugins."
+msgstr "Eklentiler yüklenemedi."
+
+#: ../src/caja-sendto-command.c:827
+msgid "Please verify your installation"
+msgstr "Lütfen kurulumu doğrulayın"
+
+#: ../src/caja-sendto.ui.h:2
+msgid "_Send"
+msgstr "_Gönder"
+
+#: ../src/caja-sendto.ui.h:3
+msgid "<b>Destination</b>"
+msgstr "<b>Hedef</b>"
+
+#: ../src/caja-sendto.ui.h:4
+msgid "Send _as:"
+msgstr "Farklı _gönder:"
+
+#: ../src/caja-sendto.ui.h:5
+msgid "Send t_o:"
+msgstr "Ş_uraya gönder:"
+
+#: ../src/caja-sendto.ui.h:6
+msgid "<b>Compression</b>"
+msgstr "<b>Sıkıştırma</b>"
+
+#: ../src/caja-sendto.ui.h:7
+msgid "Send _packed in:"
+msgstr "_İçinde gönder:"
+
+#: ../src/plugins/emailclient/emailclient.c:263
+msgid "Email"
+msgstr "E-posta"
+
+#: ../src/plugins/gajim/gajim.c:417
+msgid "Unable to send file"
+msgstr "Dosya gönderilemedi"
+
+#: ../src/plugins/gajim/gajim.c:418
+msgid "There is no connection to gajim remote service."
+msgstr "Uzaktaki gajim servisine bağlantı yok."
+
+#: ../src/plugins/gajim/gajim.c:442 ../src/plugins/gajim/gajim.c:482
+msgid "Sending file failed"
+msgstr "Dosya gönderimi başarısız"
+
+#: ../src/plugins/gajim/gajim.c:443
+msgid "Recipient is missing."
+msgstr "Alıcı eksik."
+
+#: ../src/plugins/gajim/gajim.c:482
+msgid "Unknown recipient."
+msgstr "Bilinmeyen alıcı."
+
+#: ../src/plugins/gajim/gajim.c:505
+msgid "Instant Message (Gajim)"
+msgstr "Anlık Mesajlaşma (Gajim)"
+
+#: ../src/plugins/caja-burn/caja-burn.c:92
+msgid "New CD/DVD"
+msgstr "Yeni CD/DVD"
+
+#: ../src/plugins/caja-burn/caja-burn.c:99
+msgid "Existing CD/DVD"
+msgstr "Varolan CD/DVD"
+
+#: ../src/plugins/caja-burn/caja-burn.c:178
+msgid "CD/DVD Creator"
+msgstr "CD/DVD Oluşturucu"
+
+#: ../src/plugins/pidgin/pidgin.c:464
+msgid "Instant Message (Pidgin)"
+msgstr "Anlık Mesaj (Pidgin)"
+
+#: ../src/plugins/removable-devices/removable-devices.c:248
+msgid "Removable disks and shares"
+msgstr "Çıkartılabilir disk ve paylaşımlar"
+
+#: ../src/plugins/upnp/upnp.c:309
+msgid "UPnP Media Server"
+msgstr "UPnP Çokluortam Sunucusu"

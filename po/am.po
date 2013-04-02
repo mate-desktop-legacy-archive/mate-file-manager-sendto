@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# samson <sambelet@yahoo.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 10:20+0200\n"
+"PO-Revision-Date: 2013-03-15 23:46+0000\n"
+"Last-Translator: samson <sambelet@yahoo.com>\n"
+"Language-Team: Amharic (http://www.transifex.com/projects/p/MATE/language/am/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: am\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../src/caja-nste.c:78 ../src/caja-nste.c:83 ../src/caja-sendto.ui.h:1
+msgid "Send To..."
+msgstr "መላኪያ ለ..."
+
+#: ../src/caja-nste.c:79
+msgid "Send file by mail, instant message..."
+msgstr "ፋይል በደብዳቤ / በአስቸኳይ መልእክተኛ መላኪያ..."
+
+#: ../src/caja-nste.c:84
+msgid "Send files by mail, instant message..."
+msgstr "ፋይሎች በደብዳቤ / በአስቸኳይ መልእክተኛ መላኪያ..."
+
+#: ../src/caja-sendto-command.c:576
+msgid "Files"
+msgstr "ፋይሎች "
+
+#: ../src/caja-sendto-command.c:788
+#, c-format
+msgid "Expects URIs or filenames to be passed as options\n"
+msgstr ""
+
+#: ../src/caja-sendto-command.c:809
+#, c-format
+msgid "Could not parse command-line options: %s\n"
+msgstr "የትእዛዝ - መስመር ምርጫዎችን መተንተን አልተቻለም : %s\n"
+
+#: ../src/caja-sendto-command.c:824
+msgid "Could not load any plugins."
+msgstr "ምንም ተሰኪ መጫን አልተቻለም "
+
+#: ../src/caja-sendto-command.c:827
+msgid "Please verify your installation"
+msgstr "እባክዎን አግጣጠሞትን እንደገን ይመርምሩ "
+
+#: ../src/caja-sendto.ui.h:2
+msgid "_Send"
+msgstr "_መላኪያ "
+
+#: ../src/caja-sendto.ui.h:3
+msgid "<b>Destination</b>"
+msgstr "<b>መድረሻ</b>"
+
+#: ../src/caja-sendto.ui.h:4
+msgid "Send _as:"
+msgstr "መላኪያ _እንደ :"
+
+#: ../src/caja-sendto.ui.h:5
+msgid "Send t_o:"
+msgstr "መላኪያ ወ_ደ :"
+
+#: ../src/caja-sendto.ui.h:6
+msgid "<b>Compression</b>"
+msgstr "<b>ማመቂያ</b>"
+
+#: ../src/caja-sendto.ui.h:7
+msgid "Send _packed in:"
+msgstr "እንደታሸግ _መላኪያ :"
+
+#: ../src/plugins/emailclient/emailclient.c:263
+msgid "Email"
+msgstr "ኢሜይል "
+
+#: ../src/plugins/gajim/gajim.c:417
+msgid "Unable to send file"
+msgstr "ፋይሉን መላክ አልተቻለም "
+
+#: ../src/plugins/gajim/gajim.c:418
+msgid "There is no connection to gajim remote service."
+msgstr "ግንኙነት የለም ወደ gajim remote service."
+
+#: ../src/plugins/gajim/gajim.c:442 ../src/plugins/gajim/gajim.c:482
+msgid "Sending file failed"
+msgstr "ፋይሉን መላክ አልተቻለም "
+
+#: ../src/plugins/gajim/gajim.c:443
+msgid "Recipient is missing."
+msgstr "ተቀባይ አልተገኘም "
+
+#: ../src/plugins/gajim/gajim.c:482
+msgid "Unknown recipient."
+msgstr "ያልታወቀ ተቀባይ "
+
+#: ../src/plugins/gajim/gajim.c:505
+msgid "Instant Message (Gajim)"
+msgstr "አስቸኳይ መልእክት (Gajim)"
+
+#: ../src/plugins/caja-burn/caja-burn.c:92
+msgid "New CD/DVD"
+msgstr "አዲስ ሲዲ / ዲቪዲ "
+
+#: ../src/plugins/caja-burn/caja-burn.c:99
+msgid "Existing CD/DVD"
+msgstr "የነበረው ሲዲ / ዲቪዲ "
+
+#: ../src/plugins/caja-burn/caja-burn.c:178
+msgid "CD/DVD Creator"
+msgstr " ሲዲ / ዲቪዲ መፍጠሪያ "
+
+#: ../src/plugins/pidgin/pidgin.c:464
+msgid "Instant Message (Pidgin)"
+msgstr "አስቸኳይ መልእክተኛ (ፒጂን)"
+
+#: ../src/plugins/removable-devices/removable-devices.c:248
+msgid "Removable disks and shares"
+msgstr "የሚወልቁ ዲስኮች እና የሚካፈሉዋቸው "
+
+#: ../src/plugins/upnp/upnp.c:309
+msgid "UPnP Media Server"
+msgstr "UPnP Media Server"

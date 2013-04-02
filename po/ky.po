@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#  <translatorky@lavabit.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 10:20+0200\n"
+"PO-Revision-Date: 2013-03-20 19:25+0000\n"
+"Last-Translator: chingis <translatorky@lavabit.com>\n"
+"Language-Team: Kirgyz (http://www.transifex.com/projects/p/MATE/language/ky/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ky\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../src/caja-nste.c:78 ../src/caja-nste.c:83 ../src/caja-sendto.ui.h:1
+msgid "Send To..."
+msgstr "Жөнөтүү..."
+
+#: ../src/caja-nste.c:79
+msgid "Send file by mail, instant message..."
+msgstr ""
+
+#: ../src/caja-nste.c:84
+msgid "Send files by mail, instant message..."
+msgstr ""
+
+#: ../src/caja-sendto-command.c:576
+msgid "Files"
+msgstr "Файлдар"
+
+#: ../src/caja-sendto-command.c:788
+#, c-format
+msgid "Expects URIs or filenames to be passed as options\n"
+msgstr ""
+
+#: ../src/caja-sendto-command.c:809
+#, c-format
+msgid "Could not parse command-line options: %s\n"
+msgstr ""
+
+#: ../src/caja-sendto-command.c:824
+msgid "Could not load any plugins."
+msgstr ""
+
+#: ../src/caja-sendto-command.c:827
+msgid "Please verify your installation"
+msgstr ""
+
+#: ../src/caja-sendto.ui.h:2
+msgid "_Send"
+msgstr "_Жөнөтүү"
+
+#: ../src/caja-sendto.ui.h:3
+msgid "<b>Destination</b>"
+msgstr ""
+
+#: ../src/caja-sendto.ui.h:4
+msgid "Send _as:"
+msgstr ""
+
+#: ../src/caja-sendto.ui.h:5
+msgid "Send t_o:"
+msgstr ""
+
+#: ../src/caja-sendto.ui.h:6
+msgid "<b>Compression</b>"
+msgstr ""
+
+#: ../src/caja-sendto.ui.h:7
+msgid "Send _packed in:"
+msgstr ""
+
+#: ../src/plugins/emailclient/emailclient.c:263
+msgid "Email"
+msgstr "Электрондук почта"
+
+#: ../src/plugins/gajim/gajim.c:417
+msgid "Unable to send file"
+msgstr ""
+
+#: ../src/plugins/gajim/gajim.c:418
+msgid "There is no connection to gajim remote service."
+msgstr ""
+
+#: ../src/plugins/gajim/gajim.c:442 ../src/plugins/gajim/gajim.c:482
+msgid "Sending file failed"
+msgstr ""
+
+#: ../src/plugins/gajim/gajim.c:443
+msgid "Recipient is missing."
+msgstr ""
+
+#: ../src/plugins/gajim/gajim.c:482
+msgid "Unknown recipient."
+msgstr ""
+
+#: ../src/plugins/gajim/gajim.c:505
+msgid "Instant Message (Gajim)"
+msgstr ""
+
+#: ../src/plugins/caja-burn/caja-burn.c:92
+msgid "New CD/DVD"
+msgstr ""
+
+#: ../src/plugins/caja-burn/caja-burn.c:99
+msgid "Existing CD/DVD"
+msgstr ""
+
+#: ../src/plugins/caja-burn/caja-burn.c:178
+msgid "CD/DVD Creator"
+msgstr ""
+
+#: ../src/plugins/pidgin/pidgin.c:464
+msgid "Instant Message (Pidgin)"
+msgstr ""
+
+#: ../src/plugins/removable-devices/removable-devices.c:248
+msgid "Removable disks and shares"
+msgstr ""
+
+#: ../src/plugins/upnp/upnp.c:309
+msgid "UPnP Media Server"
+msgstr ""

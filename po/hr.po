@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#  <croatianfan@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 10:20+0200\n"
+"PO-Revision-Date: 2013-03-01 16:11+0000\n"
+"Last-Translator: CroatianFan <croatianfan@gmail.com>\n"
+"Language-Team: Croatian (http://www.transifex.com/projects/p/MATE/language/hr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: ../src/caja-nste.c:78 ../src/caja-nste.c:83 ../src/caja-sendto.ui.h:1
+msgid "Send To..."
+msgstr "Pošalji na..."
+
+#: ../src/caja-nste.c:79
+msgid "Send file by mail, instant message..."
+msgstr "Pošalji datoteku e-poštom, trenutačnom porukom..."
+
+#: ../src/caja-nste.c:84
+msgid "Send files by mail, instant message..."
+msgstr "Pošalji datoteke e-poštom, trenutačnom porukom..."
+
+#: ../src/caja-sendto-command.c:576
+msgid "Files"
+msgstr "Datoteke"
+
+#: ../src/caja-sendto-command.c:788
+#, c-format
+msgid "Expects URIs or filenames to be passed as options\n"
+msgstr "Očekuje se da URI-identifikatori ili datotečna imena budu dodani kao mogućnosti.\n"
+
+#: ../src/caja-sendto-command.c:809
+#, c-format
+msgid "Could not parse command-line options: %s\n"
+msgstr "Nije moguće obraditi mogućnosti naredbenog retka: %s\n"
+
+#: ../src/caja-sendto-command.c:824
+msgid "Could not load any plugins."
+msgstr "Nije moguće pokrenuti nijedan priključak."
+
+#: ../src/caja-sendto-command.c:827
+msgid "Please verify your installation"
+msgstr "Molim ovjeri svoju ugradnju"
+
+#: ../src/caja-sendto.ui.h:2
+msgid "_Send"
+msgstr "_Pošalji"
+
+#: ../src/caja-sendto.ui.h:3
+msgid "<b>Destination</b>"
+msgstr "<b>Odredište</b>"
+
+#: ../src/caja-sendto.ui.h:4
+msgid "Send _as:"
+msgstr "Pošalji _kao:"
+
+#: ../src/caja-sendto.ui.h:5
+msgid "Send t_o:"
+msgstr "Pošalji n_a:"
+
+#: ../src/caja-sendto.ui.h:6
+msgid "<b>Compression</b>"
+msgstr "<b>Sažimanje</b>"
+
+#: ../src/caja-sendto.ui.h:7
+msgid "Send _packed in:"
+msgstr "Pošalji _zapakirano u:"
+
+#: ../src/plugins/emailclient/emailclient.c:263
+msgid "Email"
+msgstr "E-pošta"
+
+#: ../src/plugins/gajim/gajim.c:417
+msgid "Unable to send file"
+msgstr "Nije moguće poslati datoteku"
+
+#: ../src/plugins/gajim/gajim.c:418
+msgid "There is no connection to gajim remote service."
+msgstr "Ne postoji veza s udaljenim servisom Gajima."
+
+#: ../src/plugins/gajim/gajim.c:442 ../src/plugins/gajim/gajim.c:482
+msgid "Sending file failed"
+msgstr "Slanje datoteke nije uspjelo"
+
+#: ../src/plugins/gajim/gajim.c:443
+msgid "Recipient is missing."
+msgstr "Primatelj nedostaje."
+
+#: ../src/plugins/gajim/gajim.c:482
+msgid "Unknown recipient."
+msgstr "Nepoznati primatelj."
+
+#: ../src/plugins/gajim/gajim.c:505
+msgid "Instant Message (Gajim)"
+msgstr "Trenutačna poruka (Gajim)"
+
+#: ../src/plugins/caja-burn/caja-burn.c:92
+msgid "New CD/DVD"
+msgstr "Novi CD/DVD"
+
+#: ../src/plugins/caja-burn/caja-burn.c:99
+msgid "Existing CD/DVD"
+msgstr "Postojeći CD/DVD"
+
+#: ../src/plugins/caja-burn/caja-burn.c:178
+msgid "CD/DVD Creator"
+msgstr "Stvaratelj CD/DVD-a"
+
+#: ../src/plugins/pidgin/pidgin.c:464
+msgid "Instant Message (Pidgin)"
+msgstr "Trenutačna poruka (Pidgin)"
+
+#: ../src/plugins/removable-devices/removable-devices.c:248
+msgid "Removable disks and shares"
+msgstr "Uklonjivi diskovi i dijelovi"
+
+#: ../src/plugins/upnp/upnp.c:309
+msgid "UPnP Media Server"
+msgstr "UPnP medijski poslužitelj"
