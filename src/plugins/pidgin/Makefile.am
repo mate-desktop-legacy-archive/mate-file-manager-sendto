@@ -1,6 +1,6 @@
 plugindir = $(libdir)/caja-sendto/plugins
 
-INCLUDES =                                      \
+AM_CPPFLAGS =                                      \
         -DDATADIR=\"$(datadir)\"                \
         -DICONDIR=\"$(icondir)\"                \
 	-DLOCALEDIR="\"$(datadir)/locale\""	\
