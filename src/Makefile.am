@@ -1,5 +1,5 @@
 SUBDIRS = plugins
-INCLUDES =					\
+AM_CPPFLAGS =					\
 	-DDATADIR=\"$(datadir)\"		\
 	-DPLUGINDIR=\"$(libdir)/caja-sendto/plugins\"	\
 	-I$(top_srcdir)				\
